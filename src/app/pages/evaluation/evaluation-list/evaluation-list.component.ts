@@ -1,4 +1,3 @@
-//Add esses imports
 import { Component, OnInit } from '@angular/core';
 import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { SharedService } from 'src/app/shared/shared.service';

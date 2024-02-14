@@ -1,10 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map, Observable, of } from "rxjs";
-import { CourseService } from "../pages/course/course.service";
-import { UserService } from "../pages/user/user.service";
-
-//Criar esses exports
+import { map, Observable } from "rxjs";
 export interface Params {
     [key: string]: any;
 }

@@ -1,5 +1,5 @@
 import { ErrorHandler, Injectable } from "@angular/core";
-import axios from 'axios';
+import axios from "axios";
 import { AxiosInstance } from "axios";
 
 export interface Params {
@@ -18,7 +18,7 @@ export interface ErrorResponse {
   message: string;
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class UserService {
   private axiosClient: AxiosInstance;
   private errorHandler: ErrorHandler;
@@ -29,8 +29,8 @@ export class UserService {
     this.axiosClient = axios.create({
       timeout: 3000,
       headers: {
-        "X-Initialized-At": Date.now().toString()
-      }
+        "X-Initialized-At": Date.now().toString(),
+      },
     });
   }
 
@@ -39,67 +39,65 @@ export class UserService {
       let axiosResponse = await this.axiosClient.request<T>({
         method: "get",
         url: options.url,
-        params: options.params
+        params: options.params,
       });
 
-      return (axiosResponse.data);
+      return axiosResponse.data;
     } catch (error) {
-      return (Promise.reject(this.normalizeError(error)));
+      return Promise.reject(this.normalizeError(error));
     }
   }
 
   public async put<T>(options: GetOptions): Promise<T> {
-    let config = {
-      headers: {
-        "Content-Type": "multipart/form-data"
-      }
-    }
     try {
-      let axiosResponse = await this.axiosClient.put<T>(options.url, options.data, config);
-
-      return (axiosResponse.data);
-    } catch (error) {
-      return (Promise.reject(this.normalizeError(error)));
-    }
+      let axiosResponse = await this.axiosClient.request<T>({
+          method: "put",
+          url: options.url,
+          params: options.params,
+          data: options.data
+      });
+      return ( axiosResponse.data);
+  } catch (error) {
+      return ( Promise.reject( this.normalizeError (error)));
+  }
   }
 
   public async post<T>(options: GetOptions): Promise<T> {
-    let config = {
-      headers: {
-        "Content-Type": "multipart/form-data"
-      }
-    }
     try {
-      let axiosResponse = await this.axiosClient.post<T>(options.url, options.data, config);
-
-      return (axiosResponse.data);
+      let axiosResponse = await this.axiosClient.request<T>({
+        method: "post",
+        url: options.url,
+        params: options.params,
+        data: options.data,
+      });
+      return axiosResponse.data;
     } catch (error) {
-      return (Promise.reject(this.normalizeError(error)));
+      return Promise.reject(this.normalizeError(error));
     }
   }
+
   public async delete<T>(options: GetOptions): Promise<T> {
     try {
       let axiosResponse = await this.axiosClient.request<T>({
         method: "delete",
         url: options.url,
-        params: options.params
+        params: options.params,
       });
 
-      return (axiosResponse.data);
+      return axiosResponse.data;
     } catch (error) {
-      return (Promise.reject(this.normalizeError(error)));
+      return Promise.reject(this.normalizeError(error));
     }
   }
 
   private normalizeError(error: any): ErrorResponse {
-    console.log('Error:', error)
+    console.log("Error:", error);
     this.errorHandler.handleError(error);
 
-    return ({
+    return {
       id: "-1",
       code: "UnknownError",
-      message: "An unexpected error occurred."
-    });
-
+      message: "An unexpected error occurred.",
+    };
   }
 }

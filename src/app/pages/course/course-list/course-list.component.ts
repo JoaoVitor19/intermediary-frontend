@@ -9,7 +9,6 @@ import { CourseService } from '../course.service';
   styleUrls: ['./course-list.component.scss']
 })
 export class CourseListComponent implements OnInit {
-  //Implementar essa classe inteira
   faPencil = faPencil;
   faTrash = faTrash;
 
@@ -19,7 +18,6 @@ export class CourseListComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     await this.listCourses();
-
   }
 
   async listCourses(): Promise<void> {
@@ -34,10 +32,7 @@ export class CourseListComponent implements OnInit {
   async delete(id: number): Promise<void> {
     if (confirm("Deseja deletar este curso?")) {
       await this.courseService.delete<any>({
-        url: `http://localhost:3000/deleteCourse/${id}`,
-        params: {
-
-        }
+        url: `http://localhost:3000/deleteCourse/${id}`
       });
       await this.listCourses();
     }

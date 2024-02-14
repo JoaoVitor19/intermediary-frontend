@@ -37,7 +37,6 @@ export class EvaluationService {
         });
     }
 
-    // get
     public async get<T> (options: GetOptions ) : Promise<T> {
         try {
             let axiosResponse = await this.axiosClient.request<T>({
@@ -51,7 +50,6 @@ export class EvaluationService {
         }
     }
 
-    // put
     public async put<T> (options: GetOptions ) : Promise<T> {
         try {
             let axiosResponse = await this.axiosClient.request<T>({
@@ -66,7 +64,6 @@ export class EvaluationService {
         }
     }
 
-    // post
     public async post<T> (options: GetOptions ) : Promise<T> {
         try {
             let axiosResponse = await this.axiosClient.request<T>({
@@ -81,7 +78,6 @@ export class EvaluationService {
         }
     }
 
-    // delete
     public async delete<T> (options: GetOptions ) : Promise<T> {
         try {
             let axiosResponse = await this.axiosClient.request<T>({
@@ -95,7 +91,6 @@ export class EvaluationService {
         }
     }
 
-    // normalização de erros
     private normalizeError(error: any) : ErrorResponse {
         console.log('Error: ', error)
         this.errorHandler.handleError(error);

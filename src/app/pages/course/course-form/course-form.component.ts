@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 
-//add esses imports
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { ActivatedRoute, Router } from "@angular/router";
-import { SharedService } from 'src/app/shared/shared.service';
 import { CourseService } from '../course.service';
 @Component({
   selector: 'app-course-form',
@@ -12,11 +10,9 @@ import { CourseService } from '../course.service';
   styleUrls: ['./course-form.component.scss']
 })
 export class CourseFormComponent {
-  // implementar essa classe toda aqui
   course: any = {};
   form = new FormGroup({});
   model: any = {};
-  //Cria os campos e atribui os valores para serem gerados pelo angular
 
   fields: FormlyFieldConfig[] = [
     {
@@ -39,8 +35,7 @@ export class CourseFormComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private courseService: CourseService,
-    private sharedService: SharedService
+    private courseService: CourseService
   ) {
 
 

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-
-//add esses imports
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormlyFieldConfig } from '@ngx-formly/core';
@@ -13,19 +11,16 @@ import { EvaluationService } from '../evaluation.service';
 })
 
 export class EvaluationFormComponent {
-  // implementar essa classe toda aqui
   evaluation: any = {};
 
   form = new FormGroup({});
   model: any = {};
-  //Cria os campos e atribui os valores para serem gerados pelo angular
 
   fields: FormlyFieldConfig[] = [
     {
       className: 'd-flex align-content-center justify-content-center',
       fieldGroupClassName: 'row',
       fieldGroup: [
-        //Depois com a integração com o backend vamos buscar os nomes dos cursos e usuarios disponíveis para transformar isso num campo de eescolha
         {
           key: 'user_id',
           type: 'input',
