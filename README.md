@@ -2,7 +2,9 @@ Este é um projeto desenvolvido em Angular v15 que se integra perfeitamente com 
 
 Recursos Destacados
 Angular 15: Desfrute das últimas funcionalidades e aprimoramentos do Angular para uma experiência de desenvolvimento mais suave e eficiente.
+
 Integração com Node.js: A API em Node.js oferece uma base sólida para a comunicação eficiente entre o frontend e o backend. Mantenha seus dados organizados e sincronizados.
+
 CRUD Dinâmico: Gerencie facilmente usuários, cursos, professores e avaliações com operações CRUD intuitivas e eficazes.
 
 Pré-requisitos
